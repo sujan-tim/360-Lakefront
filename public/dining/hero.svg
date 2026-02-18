@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e9e2d6"/>
+      <stop offset="1" stop-color="#f6f3ee"/>
+    </linearGradient>
+    <linearGradient id="a" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#9a7b4f" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#2c7a6b" stop-opacity="0.40"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <path d="M0 610 C320 520, 520 780, 860 690 C1160 610, 1270 420, 1600 520 L1600 900 L0 900 Z" fill="url(#a)"/>
+  <circle cx="280" cy="240" r="140" fill="rgba(154,123,79,0.20)"/>
+  <circle cx="1290" cy="220" r="180" fill="rgba(44,122,107,0.18)"/>
+  <rect x="210" y="560" width="1180" height="230" rx="34" fill="rgba(255,255,255,0.55)" stroke="rgba(15,23,42,0.10)" stroke-width="2"/>
+  <text x="260" y="705" fill="rgba(15,23,42,0.74)" font-size="44" font-family="ui-serif, Georgia, serif">Restaurants &amp; Bars</text>
+</svg>
+

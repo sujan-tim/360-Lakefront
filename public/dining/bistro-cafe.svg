@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#f6f3ee"/>
+  <rect x="120" y="140" width="960" height="520" rx="40" fill="rgba(15,23,42,0.04)" stroke="rgba(15,23,42,0.10)" stroke-width="3"/>
+  <circle cx="420" cy="390" r="170" fill="rgba(44,122,107,0.16)"/>
+  <rect x="610" y="260" width="350" height="260" rx="34" fill="rgba(154,123,79,0.16)"/>
+  <rect x="220" y="540" width="760" height="80" rx="22" fill="rgba(15,23,42,0.05)"/>
+  <text x="190" y="720" fill="rgba(15,23,42,0.70)" font-size="34" font-family="ui-sans-serif, system-ui">Bistro Café</text>
+</svg>
+

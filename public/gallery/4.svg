@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#0f172a"/>
+  <circle cx="600" cy="410" r="240" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.14)" stroke-width="3"/>
+  <circle cx="600" cy="410" r="165" fill="rgba(249,115,22,0.18)"/>
+  <circle cx="520" cy="360" r="44" fill="rgba(34,197,94,0.20)"/>
+  <circle cx="670" cy="460" r="54" fill="rgba(255,255,255,0.10)"/>
+  <text x="140" y="720" fill="rgba(255,255,255,0.72)" font-size="34" font-family="ui-sans-serif, system-ui">Breakfast Plate</text>
+</svg>
+

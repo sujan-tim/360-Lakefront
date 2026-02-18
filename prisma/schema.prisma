@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Booking {
+  id                     String        @id @default(cuid())
+  roomSlug               String
+  checkIn                DateTime
+  checkOut               DateTime
+  adults                 Int
+  children               Int
+  name                   String
+  email                  String
+  phone                  String
+  notes                  String?
+  currency               String        @default("USD")
+  totalAmountCents       Int
+  paymentStatus          String        @default("PENDING")
+  stripeCheckoutSessionId String?       @unique
+  createdAt              DateTime       @default(now())
+  updatedAt              DateTime       @updatedAt
+
+  @@index([roomSlug, checkIn, checkOut])
+}
+
+model Feedback {
+  id        String   @id @default(cuid())
+  name      String
+  rating    Int
+  message   String
+  createdAt DateTime @default(now())
+}
