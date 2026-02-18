@@ -60,7 +60,7 @@ export default function BookingForm({ initialRoomSlug, initialCheckIn, initialCh
     setApiState({ status: "submitting" });
 
     try {
-      const response = await fetch("/api/bookings/checkout", {
+      const response = await fetch("/api/bookings/create", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
@@ -76,13 +76,13 @@ export default function BookingForm({ initialRoomSlug, initialCheckIn, initialCh
         })
       });
 
-      const json = (await response.json()) as { url?: string; error?: string };
-      if (!response.ok || !json.url) {
+      const json = (await response.json()) as { bookingId?: string; error?: string };
+      if (!response.ok || !json.bookingId) {
         setApiState({ status: "error", error: json.error || "Unable to start checkout." });
         return;
       }
 
-      window.location.assign(json.url);
+      window.location.assign(`/checkout?booking_id=${encodeURIComponent(json.bookingId)}`);
     } catch (err) {
       setApiState({ status: "error", error: "Network error. Please try again." });
     }
@@ -256,10 +256,10 @@ export default function BookingForm({ initialRoomSlug, initialCheckIn, initialCh
           disabled={apiState.status === "submitting" || nights < 1}
           aria-disabled={apiState.status === "submitting" || nights < 1}
         >
-          {apiState.status === "submitting" ? "Redirecting…" : "Pay & Confirm Booking"}
+          {apiState.status === "submitting" ? "Continuing…" : "Continue to payment"}
         </button>
         <div style={{ color: "var(--muted)", fontSize: 13 }}>
-          By continuing, you agree to pay the booking amount and receive a confirmation email.
+          Next step: choose Card (USD) or eSewa (NPR) to complete payment.
         </div>
       </div>
     </form>

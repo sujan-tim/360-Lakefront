@@ -12,6 +12,7 @@ model Booking {
   roomSlug               String
   checkIn                DateTime
   checkOut               DateTime
+  nights                 Int           @default(1)
   adults                 Int
   children               Int
   name                   String
@@ -20,7 +21,13 @@ model Booking {
   notes                  String?
   currency               String        @default("USD")
   totalAmountCents       Int
+  exchangeRateNprPerUsd  Int           @default(145)
+  totalAmountNpr         Int           @default(0)
+  totalAmountNprBase     Int           @default(0)
+  discountNpr            Int           @default(0)
   paymentStatus          String        @default("PENDING")
+  paymentProvider        String?
+  paymentReference       String?
   stripeCheckoutSessionId String?       @unique
   createdAt              DateTime       @default(now())
   updatedAt              DateTime       @updatedAt

@@ -29,7 +29,7 @@ export async function POST(request: Request) {
       if (bookingId) {
         await prisma.booking.update({
           where: { id: bookingId },
-          data: { paymentStatus: "PAID" }
+          data: { paymentStatus: "PAID", paymentProvider: "STRIPE", paymentReference: session.payment_intent?.toString?.() }
         });
       }
     }

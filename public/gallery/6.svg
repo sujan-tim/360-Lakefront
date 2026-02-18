@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
-  <rect width="1200" height="800" fill="#0b0d10"/>
-  <rect x="160" y="180" width="880" height="440" rx="36" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.14)" stroke-width="3"/>
-  <circle cx="600" cy="400" r="140" fill="rgba(249,115,22,0.18)"/>
-  <circle cx="540" cy="360" r="46" fill="rgba(255,255,255,0.10)"/>
-  <circle cx="660" cy="450" r="56" fill="rgba(34,197,94,0.16)"/>
-  <text x="200" y="720" fill="rgba(255,255,255,0.72)" font-size="34" font-family="ui-sans-serif, system-ui">Dessert</text>
-</svg>
-
