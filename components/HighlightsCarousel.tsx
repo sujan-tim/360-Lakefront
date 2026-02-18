@@ -36,7 +36,7 @@ const SLIDES: HighlightSlide[] = [
   {
     src: "/gallery/hotelfront%20building.jpg",
     alt: "Front view of the lodge building",
-    title: "Hilltop Restro & Lodge",
+    title: "360 View°",
     note: "A hidden gem with scenic surroundings — perfect for quiet stays, fresh meals, and golden sunsets.",
     tone: "light"
   }

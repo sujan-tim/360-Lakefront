@@ -5,7 +5,7 @@ export type MenuCategory = {
   items: {
     name: string;
     description: string;
-    priceCents: number;
+    priceNpr: number;
   }[];
 };
 
@@ -16,19 +16,19 @@ export const MENU: MenuCategory[] = [
     description: "Served daily 7:00–11:00",
     items: [
       {
-        name: "Classic Omelet",
-        description: "Three-egg omelet with herbs, cheese, and seasonal veggies.",
-        priceCents: 1199
+        name: "Aloo Paratha",
+        description: "Stuffed potato paratha served with curd and pickle.",
+        priceNpr: 220
+      },
+      {
+        name: "Omelette & Toast",
+        description: "Two-egg omelette with toast and seasonal salad.",
+        priceNpr: 200
       },
       {
         name: "Pancake Stack",
-        description: "Fluffy pancakes, maple syrup, and fresh berries.",
-        priceCents: 1099
-      },
-      {
-        name: "Avocado Toast",
-        description: "Sourdough, avocado, chili flakes, and lemon.",
-        priceCents: 999
+        description: "Fluffy pancakes served with honey and seasonal fruits.",
+        priceNpr: 260
       }
     ]
   },
@@ -38,19 +38,19 @@ export const MENU: MenuCategory[] = [
     description: "Served daily 11:30–22:00",
     items: [
       {
-        name: "Grilled Chicken Bowl",
-        description: "Herb chicken, rice, salad, and house sauce.",
-        priceCents: 1599
+        name: "Veg Momo",
+        description: "Steamed dumplings served with spicy tomato achar.",
+        priceNpr: 350
       },
       {
-        name: "Veggie Pasta",
-        description: "Seasonal vegetables, tomato sauce, and parmesan.",
-        priceCents: 1499
+        name: "Chicken Momo",
+        description: "Steamed dumplings served with spicy tomato achar.",
+        priceNpr: 450
       },
       {
-        name: "Signature Burger",
-        description: "Beef patty, cheddar, pickles, fries.",
-        priceCents: 1699
+        name: "Dal Bhat Set",
+        description: "Rice, lentils, seasonal vegetables, pickle, and salad.",
+        priceNpr: 550
       }
     ]
   },
@@ -60,21 +60,20 @@ export const MENU: MenuCategory[] = [
     description: "Coffee, tea, fresh juices, and mocktails",
     items: [
       {
-        name: "House Coffee",
-        description: "Freshly brewed, hot or iced.",
-        priceCents: 399
+        name: "Milk Tea",
+        description: "Traditional Nepali chiya, served hot.",
+        priceNpr: 80
       },
       {
-        name: "Fresh Orange Juice",
-        description: "Pressed daily.",
-        priceCents: 499
+        name: "Cappuccino",
+        description: "Espresso with steamed milk and foam.",
+        priceNpr: 180
       },
       {
-        name: "Citrus Mint Cooler",
-        description: "Lime, mint, soda, and a hint of ginger.",
-        priceCents: 599
+        name: "Fresh Juice",
+        description: "Seasonal fruit juice, served chilled.",
+        priceNpr: 250
       }
     ]
   }
 ];
-

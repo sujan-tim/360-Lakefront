@@ -8,3 +8,8 @@ export function formatMoney(amountCents: number, currency: string) {
   }).format(safeAmount / 100);
 }
 
+export function formatNpr(amountRupees: number) {
+  const safeAmount = Number.isFinite(amountRupees) ? amountRupees : 0;
+  const formatted = new Intl.NumberFormat("en-NP", { maximumFractionDigits: 0 }).format(safeAmount);
+  return `Rs. ${formatted}`;
+}

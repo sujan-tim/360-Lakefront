@@ -1268,3 +1268,65 @@ img {
     font-size: 24px;
   }
 }
+
+.menuHighlightsGrid {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.menuHighlightItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.menuHighlightPrice {
+  font-weight: 950;
+  white-space: nowrap;
+  color: var(--brand);
+  letter-spacing: -0.02em;
+}
+
+.menuPagesGrid {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.menuPagesGridCompact {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.menuPageTile {
+  position: relative;
+  display: block;
+  aspect-ratio: 1272 / 1800;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 18px 60px var(--shadow);
+}
+
+.menuPageImage {
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  .menuHighlightsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .menuPagesGrid,
+  .menuPagesGridCompact {
+    grid-template-columns: 1fr;
+  }
+}

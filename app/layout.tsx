@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <div className="footerText">Khapaudi, Pokhara-18, Nepal</div>
                 <a
                   className="footerLink"
-                  href="https://www.google.com/maps?q=Khapaudi+Pokhara-18,+Nepal"
+                  href="https://maps.app.goo.gl/fyhtRu28DYRVAX7V8"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -75,17 +75,30 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <iframe
                   className="footerMap"
                   title="360 Lakefront location"
+                  allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  src="https://www.google.com/maps?q=Khapaudi+Pokhara-18,+Nepal&output=embed"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7030.563346610855!2d83.93045359013998!3d28.229129113715125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399594cc76c91841%3A0xb6e3a3870f251d66!2s360%20lakefront%20restro%20and%20lodge!5e0!3m2!1sen!2sus!4v1771399807958!5m2!1sen!2sus"
                 />
                 <div className="footerSocial" aria-label="Social links">
-                  <a className="socialIcon" href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">
+                  <a
+                    className="socialIcon"
+                    href="https://www.facebook.com/360lakefront"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Facebook"
+                  >
                     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                       <path d="M13.5 22v-8.2h2.8l.4-3.2h-3.2V8.6c0-.9.3-1.6 1.6-1.6h1.7V4.1c-.3 0-1.3-.1-2.5-.1-2.4 0-4.1 1.5-4.1 4.3v2.3H7v3.2h3V22h3.5z" />
                     </svg>
                   </a>
-                  <a className="socialIcon" href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
+                  <a
+                    className="socialIcon"
+                    href="https://www.instagram.com/hotel360lakefront?igsh=MWxweXJwdXJ3czJ1Zg=="
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Instagram"
+                  >
                     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                       <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm9 2h-9A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4zm-4.5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm5.2-2.3a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2z" />
                     </svg>
@@ -95,8 +108,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
 
             <div className="footerBottom">
-              <div className="footerBrand">360 Lakefront</div>
-              <div className="footerCopyright">© {new Date().getFullYear()} 360 Lakefront. All rights reserved.</div>
+              <div className="footerBrand">360 Lakefront Restro and Lodge</div>
+              <div className="footerCopyright">© {new Date().getFullYear()} 360 Lakefront Restro and Lodge. All rights reserved.</div>
             </div>
           </div>
         </footer>

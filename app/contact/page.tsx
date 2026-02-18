@@ -31,11 +31,9 @@ export default function ContactPage() {
         <div className="grid2">
           <div className="card">
             <div className="cardInner" style={{ display: "grid", gap: 12, padding: 22 }}>
-              <h2 style={{ margin: 0, fontSize: 22 }}>360 Lakefront</h2>
+              <h2 style={{ margin: 0, fontSize: 22 }}>360 Lakefront Restro and Lodge</h2>
               <div style={{ color: "var(--muted)" }}>
-                Lakeside • Your City
-                <br />
-                Open 24/7 (Hotel) • 7am–10pm (Restaurant)
+                Khapaudi, Pokhara-18, Nepal
               </div>
 
               <div style={{ display: "grid", gap: 10 }}>
@@ -43,16 +41,16 @@ export default function ContactPage() {
                   <div className="label" style={{ marginBottom: 6 }}>
                     Phone
                   </div>
-                  <a href="tel:+15551234567" className="btn" style={{ width: "fit-content" }}>
-                    +1 (555) 123-4567
+                  <a href="tel:+9779846265394" className="btn" style={{ width: "fit-content" }}>
+                    +977 9846265394
                   </a>
                 </div>
                 <div>
                   <div className="label" style={{ marginBottom: 6 }}>
                     Email
                   </div>
-                  <a href="mailto:hello@360lakefront.com" className="btn" style={{ width: "fit-content" }}>
-                    hello@360lakefront.com
+                  <a href="mailto:360lakefront@gmail.com" className="btn" style={{ width: "fit-content" }}>
+                    360lakefront@gmail.com
                   </a>
                 </div>
               </div>
@@ -71,22 +69,22 @@ export default function ContactPage() {
           <div className="card">
             <div className="cardInner" style={{ display: "grid", gap: 12, padding: 22 }}>
               <h2 style={{ margin: 0, fontSize: 22 }}>Directions</h2>
-              <p style={{ margin: 0, color: "var(--muted)" }}>
-                Add your Google Maps link here. If you share the exact address, I can update this section with a clickable map button and the correct details.
-              </p>
+              <iframe
+                className="footerMap"
+                title="360 Lakefront location"
+                style={{ height: 240 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7030.563346610855!2d83.93045359013998!3d28.229129113715125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399594cc76c91841%3A0xb6e3a3870f251d66!2s360%20lakefront%20restro%20and%20lodge!5e0!3m2!1sen!2sus!4v1771399807958!5m2!1sen!2sus"
+              />
               <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-                <a className="btn" href="https://maps.google.com" target="_blank" rel="noreferrer">
+                <a className="btn" href="https://maps.app.goo.gl/fyhtRu28DYRVAX7V8" target="_blank" rel="noreferrer">
                   Open in Maps
                 </a>
                 <Link className="btn" href="/gallery">
                   View gallery
                 </Link>
-              </div>
-
-              <div className="card" style={{ background: "rgba(15, 23, 42, 0.03)" }}>
-                <div className="cardInner" style={{ padding: 16, color: "var(--muted)" }}>
-                  Tip: Replace the phone/email with your real contact details in <code>app/contact/page.tsx</code>.
-                </div>
               </div>
             </div>
           </div>
