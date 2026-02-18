@@ -20,6 +20,15 @@ function formatEsewaAmountRupees(amountNpr: number) {
 }
 
 export async function GET(request: Request) {
+  const databaseUrl = process.env.DATABASE_URL?.trim();
+  if (!databaseUrl) return new Response("Server is missing DATABASE_URL.", { status: 500 });
+  if (process.env.VERCEL && databaseUrl.startsWith("file:")) {
+    return new Response(
+      "This deployment is using SQLite (DATABASE_URL starts with file:). Vercel serverless cannot reliably use a local SQLite file. Use a hosted database (Postgres recommended).",
+      { status: 500 }
+    );
+  }
+
   const url = new URL(request.url);
   const bookingId = url.searchParams.get("booking_id") ?? "";
   if (!bookingId) return new Response("Missing booking_id", { status: 400 });

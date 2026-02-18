@@ -26,6 +26,26 @@ const BookingCreateSchema = z.object({
 });
 
 export async function POST(request: Request) {
+  const databaseUrl = process.env.DATABASE_URL?.trim();
+  if (!databaseUrl) {
+    return NextResponse.json(
+      {
+        error:
+          "Server is missing DATABASE_URL. If you deployed on Vercel, add DATABASE_URL in Project Settings → Environment Variables, then redeploy."
+      },
+      { status: 500 }
+    );
+  }
+  if (process.env.VERCEL && databaseUrl.startsWith("file:")) {
+    return NextResponse.json(
+      {
+        error:
+          "This deployment is using SQLite (DATABASE_URL starts with file:). Vercel serverless cannot reliably use a local SQLite file. Use a hosted database (Postgres recommended) and update Prisma provider, or host on a server with persistent disk."
+      },
+      { status: 500 }
+    );
+  }
+
   try {
     const json = await request.json();
     const parsed = BookingCreateSchema.safeParse(json);
