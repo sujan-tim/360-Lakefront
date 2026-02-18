@@ -56,6 +56,7 @@ export default function BookingForm({ initialRoomSlug, initialCheckIn, initialCh
 
   async function onSubmit(event: React.FormEvent) {
     event.preventDefault();
+
     setApiState({ status: "submitting" });
 
     try {

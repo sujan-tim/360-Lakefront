@@ -85,6 +85,7 @@ export async function POST(request: Request) {
     const origin = request.headers.get("origin") ?? "http://localhost:3000";
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
+      payment_method_types: ["card"],
       client_reference_id: booking.id,
       customer_email: email,
       line_items: [
@@ -118,6 +119,14 @@ export async function POST(request: Request) {
     return NextResponse.json({ url: session.url }, { status: 200 });
   } catch (error) {
     console.error(error);
+
+    const message = error instanceof Error ? error.message : "Something went wrong.";
+
+    // Avoid leaking internal details in production, but help debugging locally.
+    if (process.env.NODE_ENV !== "production") {
+      return NextResponse.json({ error: message }, { status: 500 });
+    }
+
     return NextResponse.json({ error: "Something went wrong." }, { status: 500 });
   }
 }
