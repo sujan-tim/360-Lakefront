@@ -5,6 +5,7 @@ import { prisma } from "@/lib/db";
 import { dateStringToUtcNoon } from "@/lib/dates";
 import { getRoomBySlug } from "@/lib/rooms";
 import { applyNprPercentageDiscount, usdCentsToNprRupees, USD_TO_NPR_RATE } from "@/lib/pricing";
+import { notifyAdminBooking } from "@/lib/notify";
 
 export const runtime = "nodejs";
 
@@ -107,6 +108,8 @@ export async function POST(request: Request) {
         paymentStatus: "PENDING"
       }
     });
+
+    await notifyAdminBooking("created", booking);
 
     return NextResponse.json({ bookingId: booking.id }, { status: 200 });
   } catch (error) {

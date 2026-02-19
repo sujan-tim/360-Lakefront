@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { buildSignatureMessage, getEsewaProductCode, getEsewaSecretKey, getEsewaStatusUrlBase, signEsewaMessage } from "@/lib/esewa";
+import { notifyAdminBooking, notifyCustomerBookingPaid } from "@/lib/notify";
 
 export const runtime = "nodejs";
 
@@ -31,6 +32,9 @@ export async function GET(request: Request) {
 
   const booking = await prisma.booking.findUnique({ where: { id: bookingId } });
   if (!booking) return NextResponse.redirect(new URL(`/checkout/cancel`, url));
+  if (booking.paymentStatus === "PAID") {
+    return NextResponse.redirect(new URL(`/checkout/success?booking_id=${booking.id}&provider=esewa`, url));
+  }
 
   if (!data) return NextResponse.redirect(new URL(`/checkout/cancel?booking_id=${booking.id}`, url));
 
@@ -98,7 +102,7 @@ export async function GET(request: Request) {
       return NextResponse.redirect(new URL(`/checkout/cancel?booking_id=${booking.id}`, url));
     }
 
-    await prisma.booking.update({
+    const updated = await prisma.booking.update({
       where: { id: booking.id },
       data: {
         paymentStatus: "PAID",
@@ -106,6 +110,8 @@ export async function GET(request: Request) {
         paymentReference: statusJson.ref_id ?? payload.transaction_code
       }
     });
+    await notifyAdminBooking("paid", updated);
+    await notifyCustomerBookingPaid(updated);
   } catch (err) {
     console.error(err);
     return NextResponse.redirect(new URL(`/checkout/cancel?booking_id=${booking.id}`, url));

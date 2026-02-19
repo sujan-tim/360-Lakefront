@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import Stripe from "stripe";
 import { getStripe } from "@/lib/stripe";
 import { prisma } from "@/lib/db";
+import { notifyAdminBooking, notifyCustomerBookingPaid } from "@/lib/notify";
 
 export const runtime = "nodejs";
 
@@ -27,10 +28,20 @@ export async function POST(request: Request) {
       const session = event.data.object as Stripe.Checkout.Session;
       const bookingId = session.metadata?.bookingId;
       if (bookingId) {
-        await prisma.booking.update({
+        const existing = await prisma.booking.findUnique({ where: { id: bookingId } });
+        if (!existing) return NextResponse.json({ received: true }, { status: 200 });
+        if (existing.paymentStatus === "PAID") return NextResponse.json({ received: true }, { status: 200 });
+
+        const updated = await prisma.booking.update({
           where: { id: bookingId },
-          data: { paymentStatus: "PAID", paymentProvider: "STRIPE", paymentReference: session.payment_intent?.toString?.() }
+          data: {
+            paymentStatus: "PAID",
+            paymentProvider: "STRIPE",
+            paymentReference: session.payment_intent?.toString?.()
+          }
         });
+        await notifyAdminBooking("paid", updated);
+        await notifyCustomerBookingPaid(updated);
       }
     }
 
